@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 공능 어린이 축제 🎪</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #FF5252;
+    --orange: #FF8C42;
+    --yellow: #FFD93D;
+    --green: #6BCB77;
+    --blue: #4ECDC4;
+    --purple: #A78BFA;
+    --dark: #1a1a2e;
+    --text: #2d2d2d;
+    --bg: #FFFBF0;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    overflow: hidden;
+  }
+
+  /* 풍선 배경 장식 */
+  .balloons {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .balloon {
+    position: absolute;
+    font-size: 48px;
+    animation: float 6s ease-in-out infinite;
+    opacity: 0.15;
+  }
+
+  .balloon:nth-child(1)  { top: 10%; left: 5%;   animation-delay: 0s;   font-size: 56px; }
+  .balloon:nth-child(2)  { top: 20%; left: 85%;  animation-delay: 1s;   font-size: 40px; }
+  .balloon:nth-child(3)  { top: 60%; left: 8%;   animation-delay: 2s;   font-size: 32px; }
+  .balloon:nth-child(4)  { top: 75%; left: 90%;  animation-delay: 0.5s; font-size: 48px; }
+  .balloon:nth-child(5)  { top: 40%; left: 50%;  animation-delay: 3s;   font-size: 24px; }
+  .balloon:nth-child(6)  { top: 85%; left: 30%;  animation-delay: 1.5s; font-size: 36px; }
+  .balloon:nth-child(7)  { top: 5%;  left: 50%;  animation-delay: 2.5s; font-size: 28px; }
+  .balloon:nth-child(8)  { top: 50%; left: 92%;  animation-delay: 4s;   font-size: 44px; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(-5deg); }
+    50%       { transform: translateY(-20px) rotate(5deg); }
+  }
+
+  /* 별 파티클 */
+  .stars {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .star-dot {
+    position: absolute;
+    width: 4px; height: 4px;
+    background: #FFD93D;
+    border-radius: 50%;
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(1); }
+    50%       { opacity: 1;   transform: scale(1.5); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--yellow), var(--orange));
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    padding: 6px 20px;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+
+  .hero-title {
+    font-family: 'Fredoka One', 'Noto Sans KR', sans-serif;
+    font-size: clamp(36px, 8vw, 64px);
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .hero-title .highlight {
+    background: linear-gradient(135deg, var(--yellow), var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 40px;
+  }
+
+  .hero-info-cards {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .hero-info-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    padding: 16px 20px;
+    min-width: 130px;
+    text-align: center;
+  }
+
+  .hero-info-card .card-icon { font-size: 24px; margin-bottom: 6px; }
+  .hero-info-card .card-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .hero-info-card .card-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.3;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--red), var(--orange));
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 30px rgba(255,82,82,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(255,82,82,0.5);
+  }
+
+  /* ── SECTION 공통 ── */
+  .section {
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-family: 'Fredoka One', 'Noto Sans KR', sans-serif;
+    font-size: clamp(24px, 5vw, 36px);
+    text-align: center;
+    margin-bottom: 12px;
+    color: var(--dark);
+  }
+
+  .section-sub {
+    text-align: center;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 48px;
+  }
+
+  /* ── 프로그램 섹션 ── */
+  .programs-section {
+    background: linear-gradient(180deg, var(--bg) 0%, #fff0f8 100%);
+    padding: 80px 20px;
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .program-card {
+    background: var(--card);
+    border-radius: 24px;
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: default;
+  }
+
+  .program-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  }
+
+  .program-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+  }
+
+  .program-card.red::before   { background: linear-gradient(90deg, var(--red), var(--orange)); }
+  .program-card.blue::before  { background: linear-gradient(90deg, var(--blue), #60a5fa); }
+  .program-card.yellow::before{ background: linear-gradient(90deg, var(--yellow), var(--orange)); }
+  .program-card.green::before { background: linear-gradient(90deg, var(--green), #34d399); }
+
+  .program-card-icon {
+    font-size: 52px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .program-card-title {
+    font-family: 'Fredoka One', 'Noto Sans KR', sans-serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--dark);
+  }
+
+  .program-card-desc {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  /* ── 영상 섹션 ── */
+  .video-section {
+    background: var(--dark);
+    padding: 80px 20px;
+  }
+
+  .video-section .section-title { color: #fff; }
+  .video-section .section-sub   { color: rgba(255,255,255,0.5); }
+
+  .slideshow-container {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .slideshow {
+    border-radius: 24px;
+    overflow: hidden;
+    background: #111;
+    aspect-ratio: 16/9;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+  }
+
+  .slide.active { opacity: 1; }
+
+  .slide-bg-1 { background: linear-gradient(135deg, #FF6B6B, #FF8E53); }
+  .slide-bg-2 { background: linear-gradient(135deg, #4ECDC4, #44A08D); }
+  .slide-bg-3 { background: linear-gradient(135deg, #FFD93D, #FF8C42); }
+  .slide-bg-4 { background: linear-gradient(135deg, #A78BFA, #7C3AED); }
+  .slide-bg-5 { background: linear-gradient(135deg, #6BCB77, #4CAF50); }
+
+  .slide-icon { font-size: 80px; margin-bottom: 20px; }
+  .slide-label {
+    font-family: 'Fredoka One', 'Noto Sans KR', sans-serif;
+    font-size: 22px;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    margin-bottom: 8px;
+  }
+  .slide-desc {
+    font-size: 14px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* 슬라이드 업로드 안내 오버레이 */
+  .slide-upload-note {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    background: rgba(0,0,0,0.5);
+    color: rgba(255,255,255,0.7);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  /* 슬라이드 도트 */
+  .slide-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .dot.active {
+    background: var(--yellow);
+    transform: scale(1.3);
+  }
+
+  .slideshow-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .ctrl-btn {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    font-size: 18px;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ctrl-btn:hover { background: rgba(255,255,255,0.2); }
+
+  /* ── 오시는 길 ── */
+  .map-section {
+    background: #f8f9ff;
+    padding: 80px 20px;
+  }
+
+  .map-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    background: #fff;
+  }
+
+  .map-container {
+    width: 100%;
+    height: 380px;
+    position: relative;
+    background: #e8eaf6;
+    overflow: hidden;
+  }
+
+  /* 약도 SVG */
+  .map-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .map-info {
+    padding: 28px 32px;
+  }
+
+  .map-address {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .map-icon-circle {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--red), var(--orange));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .map-address-text {}
+  .map-address-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+  .map-address-detail {
+    font-size: 13px;
+    color: #888;
+    line-height: 1.5;
+  }
+
+  .transport-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .transport-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 30px;
+  }
+
+  .tag-subway { background: #E8F5E9; color: #2E7D32; }
+  .tag-bus    { background: #E3F2FD; color: #1565C0; }
+  .tag-car    { background: #FFF8E1; color: #F59E0B; }
+
+  /* ── 예배부서 안내 ── */
+  .worship-section {
+    padding: 80px 20px;
+    background: #fff;
+  }
+
+  .worship-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .worship-card {
+    border-radius: 20px;
+    padding: 28px 20px;
+    text-align: center;
+    transition: transform 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .worship-card:hover { transform: translateY(-6px); }
+
+  .worship-card.infant   { background: linear-gradient(135deg, #FFE0EC, #FFCCDE); }
+  .worship-card.kinder   { background: linear-gradient(135deg, #FFE8CC, #FFD4A8); }
+  .worship-card.junior   { background: linear-gradient(135deg, #D4EDFF, #B8E0FF); }
+  .worship-card.elem     { background: linear-gradient(135deg, #D4FFD4, #B8F0B8); }
+  .worship-card.teen     { background: linear-gradient(135deg, #E8D4FF, #D4B8FF); }
+
+  .worship-emoji { font-size: 40px; margin-bottom: 12px; display: block; }
+
+  .worship-name {
+    font-family: 'Fredoka One', 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .worship-age {
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 12px;
+    background: rgba(255,255,255,0.5);
+    padding: 2px 8px;
+    border-radius: 10px;
+    display: inline-block;
+  }
+
+  .worship-time-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .worship-time {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--dark);
+  }
+
+  .worship-time-label {
+    font-size: 10px;
+    color: #666;
+    font-weight: 500;
+  }
+
+  .worship-room {
+    font-size: 12px;
+    color: #777;
+    background: rgba(255,255,255,0.6);
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 6px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 48px 20px;
+  }
+
+  footer .footer-logo {
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  footer .footer-sub {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  footer .footer-copy {
+    font-size: 12px;
+    opacity: 0.4;
+  }
+
+  /* 웨이브 구분선 */
+  .wave-divider {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .wave-divider svg {
+    display: block;
+    width: 100%;
+  }
+
+  /* 반응형 */
+  @media (max-width: 600px) {
+    .hero-info-cards { gap: 8px; }
+    .hero-info-card { min-width: 110px; padding: 12px 16px; }
+    .hero-info-card .card-value { font-size: 13px; }
+    .programs-grid { grid-template-columns: 1fr 1fr; }
+    .worship-grid  { grid-template-columns: 1fr 1fr; }
+    .map-info { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="balloons">
+    <div class="balloon">🎈</div>
+    <div class="balloon">🎉</div>
+    <div class="balloon">🎠</div>
+    <div class="balloon">🎪</div>
+    <div class="balloon">⭐</div>
+    <div class="balloon">🌟</div>
+    <div class="balloon">🎊</div>
+    <div class="balloon">🎁</div>
+  </div>
+
+  <div class="stars" id="stars"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">✨ 2026 GONGNEUNG CHILDREN'S FESTIVAL ✨</div>
+    <h1 class="hero-title">
+      공능<br>
+      <span class="highlight">어린이 축제</span>
+      <br>🎪🎉
+    </h1>
+    <p class="hero-subtitle">친구들과 함께하는 신나는 하루!</p>
+
+    <div class="hero-info-cards">
+      <div class="hero-info-card">
+        <div class="card-icon">📅</div>
+        <div class="card-label">DATE</div>
+        <div class="card-value">5월 17일 (일)<br>10:00 ~ 14:00</div>
+      </div>
+      <div class="hero-info-card">
+        <div class="card-icon">📍</div>
+        <div class="card-label">PLACE</div>
+        <div class="card-value">공능교회<br>제1 주차장</div>
+      </div>
+      <div class="hero-info-card">
+        <div class="card-icon">🎁</div>
+        <div class="card-label">GIFT</div>
+        <div class="card-value">새친구 선물<br>키캡 키링!</div>
+      </div>
+    </div>
+
+    <a href="#programs" class="hero-cta">🎡 축제 살펴보기</a>
+  </div>
+</section>
+
+<!-- 웨이브 -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none" style="height:60px;">
+    <path d="M0,40 C200,80 400,0 600,40 C800,80 1000,0 1200,40 L1200,80 L0,80 Z" fill="#1a1a2e"/>
+  </svg>
+</div>
+
+<!-- ── 프로그램 ── -->
+<section class="programs-section" id="programs">
+  <h2 class="section-title">🎡 주요 프로그램</h2>
+  <p class="section-sub">이런 것들이 기다리고 있어요!</p>
+  <div class="programs-grid">
+    <div class="program-card red">
+      <span class="program-card-icon">🪂</span>
+      <div class="program-card-title">에어바운스 & 미끄럼틀</div>
+      <div class="program-card-desc">신나는 에어바운스와<br>대형 미끄럼틀!</div>
+    </div>
+    <div class="program-card blue">
+      <span class="program-card-icon">🎨</span>
+      <div class="program-card-title">어린이 체험 부스</div>
+      <div class="program-card-desc">다양한 만들기 & 체험<br>부스가 준비되어 있어요</div>
+    </div>
+    <div class="program-card yellow">
+      <span class="program-card-icon">🍭</span>
+      <div class="program-card-title">맛있는 간식</div>
+      <div class="program-card-desc">달콤하고 맛있는<br>간식을 드려요!</div>
+    </div>
+    <div class="program-card green">
+      <span class="program-card-icon">🔑</span>
+      <div class="program-card-title">새친구 선물</div>
+      <div class="program-card-desc">처음 오시는 새친구에게<br>키캡 키링 선물!</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 영상/슬라이드쇼 ── -->
+<section class="video-section" id="video">
+  <div style="max-width:900px; margin:0 auto;">
+    <h2 class="section-title">📸 축제 미리보기</h2>
+    <p class="section-sub">작년 축제 영상 / 사진 슬라이드쇼</p>
+
+    <div class="slideshow-container">
+      <div class="slideshow">
+        <div class="slide slide-bg-1 active">
+          <span class="slide-icon">🎪</span>
+          <div class="slide-label">2026 공능 어린이 축제</div>
+          <div class="slide-desc">신나는 어린이 축제가 돌아왔어요!</div>
+          <div class="slide-upload-note">📷 사진/영상 교체 예정</div>
+        </div>
+        <div class="slide slide-bg-2">
+          <span class="slide-icon">🪂</span>
+          <div class="slide-label">에어바운스 & 미끄럼틀</div>
+          <div class="slide-desc">하늘 높이 뛰어놀아요!</div>
+          <div class="slide-upload-note">📷 작년 사진 교체 예정</div>
+        </div>
+        <div class="slide slide-bg-3">
+          <span class="slide-icon">🎨</span>
+          <div class="slide-label">체험 부스</div>
+          <div class="slide-desc">다양한 만들기 체험!</div>
+          <div class="slide-upload-note">📷 작년 사진 교체 예정</div>
+        </div>
+        <div class="slide slide-bg-4">
+          <span class="slide-icon">🍭</span>
+          <div class="slide-label">맛있는 간식</div>
+          <div class="slide-desc">달콤달콤 간식 타임!</div>
+          <div class="slide-upload-note">📷 작년 사진 교체 예정</div>
+        </div>
+        <div class="slide slide-bg-5">
+          <span class="slide-icon">🔑</span>
+          <div class="slide-label">새친구 선물 — 키캡 키링</div>
+          <div class="slide-desc">처음 오는 친구에게 드려요!</div>
+          <div class="slide-upload-note">📷 키링 사진 교체 예정</div>
+        </div>
+      </div>
+
+      <div class="slideshow-controls">
+        <button class="ctrl-btn" onclick="changeSlide(-1)">‹</button>
+        <div class="slide-dots" id="dots">
+          <div class="dot active" onclick="goSlide(0)"></div>
+          <div class="dot" onclick="goSlide(1)"></div>
+          <div class="dot" onclick="goSlide(2)"></div>
+          <div class="dot" onclick="goSlide(3)"></div>
+          <div class="dot" onclick="goSlide(4)"></div>
+        </div>
+        <button class="ctrl-btn" onclick="changeSlide(1)">›</button>
+      </div>
+    </div>
+
+    <!-- 실제 YouTube/영상 임베드 안내 -->
+    <div style="max-width:700px; margin: 32px auto 0; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 20px 24px; text-align: center;">
+      <p style="color: rgba(255,255,255,0.5); font-size: 13px; line-height: 1.8;">
+        📹 <strong style="color:rgba(255,255,255,0.8);">축제 소개 영상 삽입 방법:</strong><br>
+        YouTube/Shorts 영상을 만들어 업로드한 후, 아래 코드의 VIDEO_ID를 교체하세요<br>
+        <code style="background:rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; font-size: 11px;">&lt;iframe src="https://www.youtube.com/embed/VIDEO_ID"&gt;</code>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 오시는 길 ── -->
+<section class="map-section" id="map">
+  <h2 class="section-title">📍 오시는 길</h2>
+  <p class="section-sub">공능교회 제1 주차장에서 만나요!</p>
+
+  <div class="map-wrapper">
+    <div class="map-container" style="height:auto; background:#FFFDF4;">
+      <svg class="map-svg" viewBox="0 0 780 480" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="pinkArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M2 2L10 6L2 10" fill="none" stroke="#F06292" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </marker>
+        </defs>
+        <!-- 배경 -->
+        <rect width="780" height="480" fill="#FFFDF4" stroke="#F5E6C0" stroke-width="3"/>
+        <!-- 도로 그리드 -->
+        <rect x="130" y="198" width="510" height="44" fill="#E8E4D8"/>
+        <rect x="130" y="202" width="510" height="36" fill="#F0EDE4"/>
+        <line x1="130" y1="220" x2="640" y2="220" stroke="white" stroke-width="1.5" stroke-dasharray="12,9" opacity="0.8"/>
+        <rect x="350" y="60" width="44" height="360" fill="#E8E4D8"/>
+        <rect x="354" y="60" width="36" height="360" fill="#F0EDE4"/>
+        <line x1="372" y1="60" x2="372" y2="420" stroke="white" stroke-width="1.5" stroke-dasharray="12,9" opacity="0.8"/>
+        <rect x="488" y="60" width="44" height="155" fill="#E8E4D8"/>
+        <rect x="492" y="60" width="36" height="155" fill="#F0EDE4"/>
+        <line x1="510" y1="60" x2="510" y2="215" stroke="white" stroke-width="1.5" stroke-dasharray="12,9" opacity="0.8"/>
+        <!-- 블록 배경 -->
+        <rect x="134" y="64" width="210" height="132" rx="6" fill="#EDF2E6" opacity="0.7"/>
+        <rect x="396" y="64" width="88" height="132" rx="6" fill="#EDF2E6" opacity="0.7"/>
+        <rect x="134" y="248" width="210" height="120" rx="6" fill="#EDF2E6" opacity="0.7"/>
+        <rect x="396" y="248" width="88" height="120" rx="6" fill="#EDF2E6" opacity="0.7"/>
+        <!-- 나무들 -->
+        <rect x="223" y="126" width="7" height="22" rx="2" fill="#A0785A"/>
+        <ellipse cx="226" cy="116" rx="18" ry="20" fill="#7CB55A"/>
+        <ellipse cx="220" cy="120" rx="13" ry="15" fill="#8DC463"/>
+        <rect x="255" y="126" width="7" height="22" rx="2" fill="#A0785A"/>
+        <ellipse cx="258" cy="112" rx="15" ry="18" fill="#5FA045"/>
+        <ellipse cx="263" cy="118" rx="12" ry="14" fill="#7CB55A"/>
+        <rect x="213" y="316" width="6" height="16" rx="2" fill="#A0785A"/>
+        <ellipse cx="216" cy="307" rx="14" ry="15" fill="#7CB55A"/>
+        <rect x="662" y="268" width="8" height="24" rx="2" fill="#A0785A"/>
+        <ellipse cx="666" cy="256" rx="20" ry="22" fill="#7CB55A"/>
+        <ellipse cx="658" cy="262" rx="14" ry="16" fill="#8DC463"/>
+        <rect x="690" y="276" width="6" height="18" rx="2" fill="#A0785A"/>
+        <ellipse cx="693" cy="266" rx="15" ry="17" fill="#5FA045"/>
+        <!-- 공릉역 바 -->
+        <rect x="30" y="100" width="80" height="250" rx="14" fill="#5A7A2F"/>
+        <line x1="56" y1="114" x2="56" y2="336" stroke="#4A6A22" stroke-width="1.5" opacity="0.4"/>
+        <line x1="84" y1="114" x2="84" y2="336" stroke="#4A6A22" stroke-width="1.5" opacity="0.4"/>
+        <circle cx="70" cy="148" r="22" fill="#3D6B1A"/>
+        <circle cx="70" cy="148" r="18" fill="#4A7E20"/>
+        <text x="70" y="154" text-anchor="middle" font-size="18" font-weight="700" fill="white" font-family="'Noto Sans KR',sans-serif">7</text>
+        <text x="70" y="192" text-anchor="middle" font-size="15" font-weight="700" fill="white" font-family="'Noto Sans KR',sans-serif">공</text>
+        <text x="70" y="212" text-anchor="middle" font-size="15" font-weight="700" fill="white" font-family="'Noto Sans KR',sans-serif">릉</text>
+        <text x="70" y="232" text-anchor="middle" font-size="15" font-weight="700" fill="white" font-family="'Noto Sans KR',sans-serif">역</text>
+        <circle cx="128" cy="222" r="18" fill="#F5C92A" stroke="white" stroke-width="2.5"/>
+        <text x="128" y="227" text-anchor="middle" font-size="15" font-weight="700" fill="#7A5800" font-family="'Noto Sans KR',sans-serif">2</text>
+        <rect x="108" y="244" width="60" height="22" rx="11" fill="#5A7A2F"/>
+        <text x="138" y="259" text-anchor="middle" font-size="10" font-weight="600" fill="white" font-family="'Noto Sans KR',sans-serif">2번 출구</text>
+        <!-- 기업은행 건물 -->
+        <rect x="152" y="146" width="68" height="56" rx="5" fill="#D4C9B0"/>
+        <rect x="152" y="146" width="68" height="14" rx="5" fill="#BFB49A"/>
+        <rect x="160" y="166" width="12" height="14" rx="2" fill="#A8D4E8"/>
+        <rect x="178" y="166" width="12" height="14" rx="2" fill="#A8D4E8"/>
+        <rect x="196" y="166" width="12" height="14" rx="2" fill="#A8D4E8"/>
+        <rect x="176" y="182" width="16" height="20" rx="2" fill="#8B6E4E"/>
+        <rect x="166" y="150" width="36" height="8" rx="2" fill="#E8821A" opacity="0.8"/>
+        <text x="186" y="218" text-anchor="middle" font-size="11" fill="#5A5040" font-family="'Noto Sans KR',sans-serif">기업은행</text>
+        <!-- CU 편의점 -->
+        <rect x="380" y="136" width="76" height="66" rx="5" fill="#F5E8CC"/>
+        <rect x="380" y="136" width="76" height="18" rx="5" fill="#FF6B35"/>
+        <rect x="386" y="138" width="64" height="14" rx="3" fill="#00A651"/>
+        <text x="418" y="149" text-anchor="middle" font-size="10" font-weight="700" fill="white" font-family="'Noto Sans KR',sans-serif">24</text>
+        <rect x="388" y="158" width="60" height="38" rx="2" fill="#C8E8F5" opacity="0.7"/>
+        <rect x="404" y="170" width="20" height="26" rx="2" fill="#7ABCD4"/>
+        <text x="418" y="218" text-anchor="middle" font-size="11" fill="#5A5040" font-family="'Noto Sans KR',sans-serif">CU 편의점</text>
+        <!-- 버거리 건물 -->
+        <rect x="522" y="146" width="64" height="56" rx="5" fill="#E8D4B0"/>
+        <rect x="522" y="146" width="64" height="16" rx="5" fill="#C8A878"/>
+        <rect x="530" y="168" width="14" height="16" rx="2" fill="#A8D4E8"/>
+        <rect x="554" y="168" width="14" height="16" rx="2" fill="#A8D4E8"/>
+        <rect x="540" y="182" width="14" height="20" rx="2" fill="#8B6E4E"/>
+        <text x="554" y="156" text-anchor="middle" font-size="10" fill="#7A5A30" font-family="sans-serif">🍽</text>
+        <text x="554" y="218" text-anchor="middle" font-size="11" fill="#5A5040" font-family="'Noto Sans KR',sans-serif">버거리</text>
+        <!-- 공능교회 -->
+        <rect x="630" y="170" width="110" height="120" rx="8" fill="#F5F0E0"/>
+        <polygon points="625,174 740,174 685,124" fill="#6B9AC4"/>
+        <rect x="672" y="100" width="26" height="50" rx="4" fill="#F5F0E0" stroke="#6B9AC4" stroke-width="1.5"/>
+        <polygon points="669,104 712,104 690,82" fill="#6B9AC4"/>
+        <rect x="687" y="72" width="5" height="18" rx="1.5" fill="#C8A020"/>
+        <rect x="681" y="78" width="17" height="5" rx="1.5" fill="#C8A020"/>
+        <rect x="668" y="236" width="34" height="54" rx="17" fill="#8B6E4E"/>
+        <rect x="672" y="240" width="12" height="48" rx="6" fill="#6B4E2E"/>
+        <rect x="686" y="240" width="12" height="48" rx="6" fill="#6B4E2E"/>
+        <rect x="638" y="196" width="20" height="26" rx="10" fill="#A8CEE8"/>
+        <line x1="648" y1="196" x2="648" y2="222" stroke="white" stroke-width="1"/>
+        <line x1="638" y1="209" x2="658" y2="209" stroke="white" stroke-width="1"/>
+        <rect x="710" y="196" width="20" height="26" rx="10" fill="#A8CEE8"/>
+        <line x1="720" y1="196" x2="720" y2="222" stroke="white" stroke-width="1"/>
+        <line x1="710" y1="209" x2="730" y2="209" stroke="white" stroke-width="1"/>
+        <text x="735" y="215" font-size="14" fill="#F06292" opacity="0.8" font-family="sans-serif">♥</text>
+        <text x="748" y="235" font-size="10" fill="#F06292" opacity="0.6" font-family="sans-serif">♥</text>
+        <rect x="638" y="300" width="112" height="32" rx="16" fill="#4A8FD4"/>
+        <text x="694" y="320" text-anchor="middle" font-size="14" font-weight="700" fill="white" font-family="'Noto Sans KR',sans-serif">공능교회</text>
+        <!-- 경로 점선 -->
+        <line x1="148" y1="222" x2="625" y2="222" stroke="#F06292" stroke-width="3.5" stroke-dasharray="10,7" stroke-linecap="round" marker-end="url(#pinkArrow)"/>
+        <!-- 제목 배너 -->
+        <polygon points="160,18 140,41 160,64" fill="#8FAD30"/>
+        <polygon points="620,18 640,41 620,64" fill="#8FAD30"/>
+        <rect x="160" y="18" width="460" height="46" rx="8" fill="#B8D450"/>
+        <text text-anchor="middle" font-family="'Noto Sans KR',sans-serif" font-weight="700">
+          <tspan x="390" y="50" font-size="17" fill="#3D5A10">공릉역 </tspan><tspan font-size="17" fill="#E85A1E" font-weight="900">2번출구</tspan><tspan font-size="17" fill="#3D5A10"> → </tspan><tspan font-size="17" fill="#2B6CB0" font-weight="900">공능교회</tspan><tspan font-size="17" fill="#3D5A10"> 오시는 길</tspan>
+        </text>
+        <ellipse cx="156" cy="22" rx="12" ry="7" fill="#7CB55A" transform="rotate(-30,156,22)"/>
+        <ellipse cx="145" cy="16" rx="9" ry="5" fill="#8DC463" transform="rotate(-50,145,16)"/>
+        <ellipse cx="720" cy="30" rx="22" ry="14" fill="white" opacity="0.85"/>
+        <ellipse cx="736" cy="26" rx="16" ry="12" fill="white" opacity="0.85"/>
+        <ellipse cx="705" cy="32" rx="14" ry="10" fill="white" opacity="0.85"/>
+        <!-- 안내 말풍선 -->
+        <rect x="420" y="290" width="270" height="90" rx="16" fill="#FFF7E0" stroke="#F5C92A" stroke-width="2"/>
+        <polygon points="440,290 420,270 460,290" fill="#FFF7E0" stroke="#F5C92A" stroke-width="2"/>
+        <polygon points="441,290 420,272 459,290" fill="#FFF7E0"/>
+        <text x="433" y="323" font-size="13" fill="#F06292" font-family="sans-serif">♥</text>
+        <text x="446" y="323" font-size="12" fill="#5A4030" font-family="'Noto Sans KR',sans-serif">2번 출구로 나와 직진 후,</text>
+        <text x="433" y="342" font-size="12" fill="#5A4030" font-family="'Noto Sans KR',sans-serif">CU편의점 골목으로 쭉 오시면</text>
+        <text x="433" y="361" font-size="12" font-family="'Noto Sans KR',sans-serif"><tspan fill="#5A4030">오른쪽에 </tspan><tspan fill="#2B6CB0" font-weight="700">공능교회</tspan><tspan fill="#5A4030">가 보여요!</tspan></text>
+      </svg>
+    </div>
+
+    <div class="map-info">
+      <div class="map-address">
+        <div class="map-icon-circle">📍</div>
+        <div class="map-address-text">
+          <div class="map-address-title">공능교회 제1 주차장</div>
+          <div class="map-address-detail">
+            서울특별시 노원구 동일로186길 27 공능교회<br>
+            📅 5월 17일(일) 오전 10시 ~ 오후 2시
+          </div>
+        </div>
+      </div>
+      <div class="transport-tags">
+        <span class="transport-tag tag-subway">🚇 7호선 공릉역 2번출구 도보 5분</span>
+        <span class="transport-tag tag-bus">🚌 버스 이용 가능</span>
+        <span class="transport-tag tag-car">🚗 교회 제1 주차장 이용</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 교육부서 예배 안내 ── -->
+<section class="worship-section" id="worship">
+  <div class="section" style="padding-top:0; padding-bottom:0;">
+    <h2 class="section-title">⛪ 교육부서 예배 안내</h2>
+    <p class="section-sub">함께 예배드려요! 각 부서별 예배 시간을 확인해 주세요</p>
+
+    <div class="worship-grid">
+      <div class="worship-card infant">
+        <span class="worship-emoji">👶</span>
+        <div class="worship-name">유아부</div>
+        <div class="worship-age">3세 ~ 5세</div>
+        <div class="worship-time-row">
+          <span class="worship-time">11:00</span>
+          <span class="worship-time-label">예배</span>
+        </div>
+        <div class="worship-room">3층 유아부실</div>
+      </div>
+
+      <div class="worship-card kinder">
+        <span class="worship-emoji">🧒</span>
+        <div class="worship-name">유치부</div>
+        <div class="worship-age">6세 ~ 7세</div>
+        <div class="worship-time-row">
+          <span class="worship-time">11:00</span>
+          <span class="worship-time-label">예배</span>
+        </div>
+        <div class="worship-room">3층 유치부실</div>
+      </div>
+
+      <div class="worship-card junior">
+        <span class="worship-emoji">🎒</span>
+        <div class="worship-name">유년부</div>
+        <div class="worship-age">초등 1~3학년</div>
+        <div class="worship-time-row">
+          <span class="worship-time">11:00</span>
+          <span class="worship-time-label">예배</span>
+        </div>
+        <div class="worship-room">2층 유년부실</div>
+      </div>
+
+      <div class="worship-card elem">
+        <span class="worship-emoji">📚</span>
+        <div class="worship-name">초등부</div>
+        <div class="worship-age">초등 4~6학년</div>
+        <div class="worship-time-row">
+          <span class="worship-time">11:00</span>
+          <span class="worship-time-label">예배</span>
+        </div>
+        <div class="worship-room">2층 기도실</div>
+      </div>
+
+      <div class="worship-card teen">
+        <span class="worship-emoji">🙏</span>
+        <div class="worship-name">청소년부</div>
+        <div class="worship-age">중·고등부</div>
+        <div class="worship-time-row">
+          <span class="worship-time">9:00</span>
+          <span class="worship-time-label">예배</span>
+        </div>
+        <div class="worship-room">2층 기도실</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">🎪 공능교회</div>
+  <div class="footer-sub">
+    서울특별시 노원구 동일로186길 27<br>
+    7호선 공릉역 2번출구 도보 5분
+  </div>
+  <div class="footer-copy">© 2026 공능교회 어린이부 · 2026 Gongneung Church Children's Ministry</div>
+</footer>
+
+<script>
+  // 별 파티클 생성
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 40; i++) {
+    const dot = document.createElement('div');
+    dot.classList.add('star-dot');
+    dot.style.left   = Math.random() * 100 + '%';
+    dot.style.top    = Math.random() * 100 + '%';
+    dot.style.animationDelay = Math.random() * 3 + 's';
+    dot.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+    starsEl.appendChild(dot);
+  }
+
+  // 슬라이드쇼
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots   = document.querySelectorAll('.dot');
+  let autoTimer = setInterval(() => changeSlide(1), 3500);
+
+  function goSlide(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function changeSlide(dir) {
+    clearInterval(autoTimer);
+    goSlide(current + dir);
+    autoTimer = setInterval(() => changeSlide(1), 3500);
+  }
+
+  // 스크롤 애니메이션
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity   = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.program-card, .worship-card').forEach(el => {
+    el.style.opacity   = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
