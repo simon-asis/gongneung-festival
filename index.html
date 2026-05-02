@@ -34,7 +34,7 @@
   /* ── HERO ── */
   .hero {
     min-height: 100vh;
-    background: url('img/main_card.png') center center / cover no-repeat;
+    background: url('img/main_card.png') center center / contain no-repeat, linear-gradient(160deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -157,12 +157,20 @@
     margin-bottom: 40px;
   }
 
-  .hero-ticket-img {
+  .hero-ticket-wrap {
     width: 150%;
     margin-left: -25%;
-    border-radius: 20px;
     margin-top: 32px;
+    border-radius: 20px;
+    overflow: hidden;
     box-shadow: 0 16px 50px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-ticket-img {
+    width: 100%;
+    display: block;
   }
 
   .hero-info-card {
@@ -311,6 +319,28 @@
     gap: 6px;
     z-index: 5;
   }
+
+  .pcard-prev, .pcard-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.35);
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    line-height: 1;
+  }
+  .pcard-prev { left: 8px; }
+  .pcard-next { right: 8px; }
+  .pcard-prev:hover, .pcard-next:hover { background: rgba(0,0,0,0.6); }
 
   .pcard-photo-dot {
     width: 7px; height: 7px;
@@ -808,7 +838,10 @@
       </div>
     </div>
 
-    <img src="img/ticket_visit.png" class="hero-ticket-img" alt="티켓">
+    <div class="hero-ticket-wrap">
+      <img src="img/ticket_visit_left.png" class="hero-ticket-img" alt="티켓 상단">
+      <img src="img/ticket_visit_right.png" class="hero-ticket-img" alt="티켓 하단" style="width:35%; height:auto; align-self:center;">
+    </div>
 
     <a href="#programs" class="hero-cta">🎡 축제 살펴보기</a>
   </div>
@@ -1221,13 +1254,15 @@
     observer.observe(el);
   });
 
-  // 프로그램 카드 사진 자동 전환 + 캡션 업데이트
+  // 프로그램 카드 사진 자동 전환 + 화살표/도트 클릭
   document.querySelectorAll('.pcard-photos').forEach(photos => {
     const imgs    = photos.querySelectorAll('img');
     const dots    = photos.querySelectorAll('.pcard-photo-dot');
     const caption = photos.querySelector('.pcard-caption');
     if (imgs.length < 2) return;
     let idx = 0;
+    let timer;
+
     function showPhoto(n) {
       imgs[idx].classList.remove('active');
       if (dots[idx]) dots[idx].classList.remove('active');
@@ -1236,7 +1271,32 @@
       if (dots[idx]) dots[idx].classList.add('active');
       if (caption) caption.textContent = imgs[idx].dataset.caption || '';
     }
-    setInterval(() => showPhoto(idx + 1), 2800);
+
+    function resetTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => showPhoto(idx + 1), 2800);
+    }
+
+    // 이전/다음 버튼 생성
+    const prev = document.createElement('button');
+    prev.className = 'pcard-prev';
+    prev.innerHTML = '&#8249;';
+    prev.onclick = () => { showPhoto(idx - 1); resetTimer(); };
+
+    const next = document.createElement('button');
+    next.className = 'pcard-next';
+    next.innerHTML = '&#8250;';
+    next.onclick = () => { showPhoto(idx + 1); resetTimer(); };
+
+    photos.appendChild(prev);
+    photos.appendChild(next);
+
+    // 도트 클릭
+    dots.forEach((dot, i) => {
+      dot.onclick = () => { showPhoto(i); resetTimer(); };
+    });
+
+    resetTimer();
   });
 </script>
 
