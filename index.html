@@ -1333,6 +1333,7 @@
   let bgmOn = false;
 
   function startBgm() {
+    if (bgm.currentTime < 4) bgm.currentTime = 4;
     bgm.play().then(() => {
       bgmOn = true;
       bgmBtn.textContent = '🎵';
