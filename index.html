@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2026 공능 어린이 축제 🎪</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Fredoka+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Fredoka+One&family=Black+Han+Sans&family=Gamja+Flower&display=swap" rel="stylesheet">
 <style>
   :root {
     --red: #FF5252;
@@ -128,7 +128,7 @@
   }
 
   .hero-title {
-    font-family: 'Fredoka One', 'Noto Sans KR', sans-serif;
+    font-family: 'Gamja Flower', 'Black Han Sans', 'Noto Sans KR', sans-serif;
     font-size: clamp(36px, 8vw, 64px);
     color: #fff;
     line-height: 1.1;
@@ -141,6 +141,28 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  .hero-title .t-purple {
+    color: #6C4ECC;
+    -webkit-text-fill-color: #6C4ECC;
+    -webkit-text-stroke: 4px #fff;
+    paint-order: stroke fill;
+  }
+  .hero-title .t-red {
+    color: #E8000E;
+    -webkit-text-fill-color: #E8000E;
+    -webkit-text-stroke: 4px #fff;
+    paint-order: stroke fill;
+    font-size: 1.5em;
+    display: inline-block;
+    transform: translateY(4px);
+    filter: drop-shadow(0 4px 8px rgba(232,0,14,0.5));
+  }
+  .hero-title .t-orange {
+    color: #FF7A00;
+    -webkit-text-fill-color: #FF7A00;
+    -webkit-text-stroke: 4px #fff;
+    paint-order: stroke fill;
   }
 
   .hero-subtitle {
@@ -837,9 +859,9 @@
   <button class="bgm-btn" id="bgmBtn" title="BGM 켜기/끄기">🎵</button>
 
   <div class="hero-content">
-    <div class="hero-badge">✨ 2026 GONGNEUNG CHILDREN'S FESTIVAL ✨</div>
+    <div class="hero-badge">✨ 2026년 공능 어린이 축제 ✨</div>
     <h1 class="hero-title">
-      공능 <span class="highlight">어린이 축제</span>
+      <span class="t-purple">너는</span> <span class="t-red">빛</span><span class="t-orange">이야!</span>
     </h1>
     <p class="hero-subtitle">친구들과 함께하는 신나는 하루!</p>
 
